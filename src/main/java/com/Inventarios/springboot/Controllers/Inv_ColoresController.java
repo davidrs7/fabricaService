@@ -24,34 +24,34 @@ public class Inv_ColoresController {
 	@Autowired
 	private Inv_ColoresService Coloreservice;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/Colores")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/Colores")
 	public ResponseEntity<List<Inv_Colores>> getAllColores(){
 		return   ResponseEntity.ok().body(Coloreservice.getAllColores());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/Colores/{color_codigo}")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/Colores/{color_codigo}")
 	public ResponseEntity<Inv_Colores> getcolorbyId(@PathVariable long color_codigo){
 		return   ResponseEntity.ok().body(Coloreservice.getColoresbyId(color_codigo));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping("/Colores")
+	@CrossOrigin(origins = "*")
+	@PostMapping("/api/Colores")
 	public ResponseEntity<Inv_Colores> createColores(@RequestBody Inv_Colores color ){
 	 return	ResponseEntity.ok().body(Coloreservice.createColores(color));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping("/Colores/{color_codigo}")
+	@CrossOrigin(origins = "*")
+	@PutMapping("/api/Colores/{color_codigo}")
 	public ResponseEntity<Inv_Colores> updateColores(@PathVariable long color_codigo, @RequestBody Inv_Colores color ){
 		 
 		color.setColor_Codigo(color_codigo);
 		return	ResponseEntity.ok().body(Coloreservice.UpdateColores(color));
 		}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping("/Colores/{color_codigo}")
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("/api/Colores/{color_codigo}")
 	public HttpStatus deletecolor(@PathVariable long color_codigo ) {
 		this.Coloreservice.deleteColores(color_codigo);
 		return  HttpStatus.OK;

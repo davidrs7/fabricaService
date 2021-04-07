@@ -24,34 +24,34 @@ public class Inv_TipidenController {
 	@Autowired
 	private Inv_TipidenService TipidenService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/Tipiden")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/Tipiden")
 	public ResponseEntity<List<Inv_TipIden>> getAllTallas(){
 		return   ResponseEntity.ok().body(TipidenService.getAllTipiden());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/Tipiden/{Tipiden_codigo}")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/Tipiden/{Tipiden_codigo}")
 	public ResponseEntity<Inv_TipIden> getTallabyId(@PathVariable long Tipiden_codigo){
 		return   ResponseEntity.ok().body(TipidenService.getTipidenbyId(Tipiden_codigo));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping("/Tipiden")
+	@CrossOrigin(origins = "*")
+	@PostMapping("/api/Tipiden")
 	public ResponseEntity<Inv_TipIden> createTallas(@RequestBody Inv_TipIden tipiden){
 	 return	ResponseEntity.ok().body(TipidenService.createTipiden(tipiden));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping("/Tipiden/{Tipiden_codigo}")
+	@CrossOrigin(origins = "*")
+	@PutMapping("/api/Tipiden/{Tipiden_codigo}")
 	public ResponseEntity<Inv_TipIden> updateTallas(@PathVariable long Tipiden_codigo, @RequestBody Inv_TipIden tipiden ){
 		 
 		tipiden.setTIPIDEN_CODIGO(Tipiden_codigo);
 		return	ResponseEntity.ok().body(TipidenService.UpdateTipiden(tipiden));
 		}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping("/Tipiden/{Tipiden_codigo}")
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("/api/Tipiden/{Tipiden_codigo}")
 	public HttpStatus deleteTalla(@PathVariable long Tipiden_codigo ) {
 		this.TipidenService.deleteTipiden(Tipiden_codigo);
 		return  HttpStatus.OK;

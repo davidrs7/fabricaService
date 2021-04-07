@@ -24,34 +24,34 @@ public class Inv_TallasController {
 	@Autowired
 	private Inv_TallasService Tallaservice;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/Tallas")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/Tallas")
 	public ResponseEntity<List<Inv_Tallas>> getAllTallas(){
 		return   ResponseEntity.ok().body(Tallaservice.getAllTallas());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/Tallas/{Talla_codigo}")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/Tallas/{Talla_codigo}")
 	public ResponseEntity<Inv_Tallas> getTallabyId(@PathVariable long Talla_codigo){
 		return   ResponseEntity.ok().body(Tallaservice.getTallasbyId(Talla_codigo));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping("/Tallas")
+	@CrossOrigin(origins = "*")
+	@PostMapping("/api/Tallas")
 	public ResponseEntity<Inv_Tallas> createTallas(@RequestBody Inv_Tallas Talla ){
 	 return	ResponseEntity.ok().body(Tallaservice.createTallas(Talla));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping("/Tallas/{Talla_codigo}")
+	@CrossOrigin(origins = "*")
+	@PutMapping("/api/Tallas/{Talla_codigo}")
 	public ResponseEntity<Inv_Tallas> updateTallas(@PathVariable long Talla_codigo, @RequestBody Inv_Tallas Talla ){
 		 
 		Talla.setTalla_Codigo(Talla_codigo);
 		return	ResponseEntity.ok().body(Tallaservice.UpdateTallas(Talla));
 		}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping("/Tallas/{Talla_codigo}")
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("/api/Tallas/{Talla_codigo}")
 	public HttpStatus deleteTalla(@PathVariable long Talla_codigo ) {
 		this.Tallaservice.deleteTallas(Talla_codigo);
 		return  HttpStatus.OK;

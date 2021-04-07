@@ -24,34 +24,34 @@ public class Inv_VendedoresController {
 	@Autowired
 	private Inv_VendedoresService vendedoresService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/vendedores")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/vendedores")
 	public ResponseEntity<List<Inv_Vendedores>> getAllVendedores(){
 		return   ResponseEntity.ok().body(vendedoresService.getAllVendedores());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/vendedores/{vendedor_codigo}")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/vendedores/{vendedor_codigo}")
 	public ResponseEntity<Inv_Vendedores> getVendedoresbyId(@PathVariable long vendedor_codigo){
 		return   ResponseEntity.ok().body(vendedoresService.getVendedorbyId(vendedor_codigo));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping("/vendedores")
+	@CrossOrigin(origins = "*")
+	@PostMapping("/api/vendedores")
 	public ResponseEntity<Inv_Vendedores> createVendedor(@RequestBody Inv_Vendedores vendedor_codigo){
 	 return	ResponseEntity.ok().body(vendedoresService.createVendedor(vendedor_codigo));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping("/vendedores/{vendedor_codigo}")
+	@CrossOrigin(origins = "*")
+	@PutMapping("/api/vendedores/{vendedor_codigo}")
 	public ResponseEntity<Inv_Vendedores> updateVendedor(@PathVariable long vendedor_codigo, @RequestBody Inv_Vendedores vendedor ){
 		 
 		vendedor.setVENDEDOR_CODIGO(vendedor_codigo);
 		return	ResponseEntity.ok().body(vendedoresService.UpdateVendedor(vendedor));
 		}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping("/vendedores/{vendedor_codigo}")
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("/api/vendedores/{vendedor_codigo}")
 	public HttpStatus deleteVendedor(@PathVariable long Tipiden_codigo ) {
 		this.vendedoresService.deleteVendedor(Tipiden_codigo);
 		return  HttpStatus.OK;

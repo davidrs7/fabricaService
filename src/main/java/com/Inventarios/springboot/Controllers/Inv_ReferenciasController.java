@@ -23,34 +23,34 @@ public class Inv_ReferenciasController {
 	
 	@Autowired
 	private Inv_ReferenciasService ReferenciaService;
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/referencias")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/referencias")
 	public ResponseEntity<List<Inv_Referencias>> getAllReferencias(){
 		return   ResponseEntity.ok().body(ReferenciaService.getAllReferencias());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/referencias/{ref_cod}")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/referencias/{ref_cod}")
 	public ResponseEntity<Inv_Referencias> getReferenciabyId(@PathVariable long ref_cod){
 		return   ResponseEntity.ok().body(ReferenciaService.getReferenciasbyId(ref_cod));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping("/referencias")
+	@CrossOrigin(origins = "*")
+	@PostMapping("/api/referencias")
 	public ResponseEntity<Inv_Referencias> createReferencias(@RequestBody Inv_Referencias Referencia ){
 	 return	ResponseEntity.ok().body(ReferenciaService.createReferencias(Referencia));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping("/referencias/{ref_cod}")
+	@CrossOrigin(origins = "*")
+	@PutMapping("/api/referencias/{ref_cod}")
 	public ResponseEntity<Inv_Referencias> updateReferencias(@PathVariable long ref_cod, @RequestBody Inv_Referencias Referencia ){
 		 
 		Referencia.setRef_codigo(ref_cod);
 		return	ResponseEntity.ok().body(ReferenciaService.UpdateReferencias(Referencia));
 		}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping("/referencias/{ref_cod}")
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("/api/referencias/{ref_cod}")
 	public HttpStatus deleteReferencia(@PathVariable long ref_cod ) {
 		this.ReferenciaService.deleteReferencias(ref_cod);
 		return  HttpStatus.OK;

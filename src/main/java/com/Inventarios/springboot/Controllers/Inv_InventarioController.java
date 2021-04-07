@@ -25,34 +25,34 @@ public class Inv_InventarioController {
 	private Inv_InventarioService Inventarioervice;
 	
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/Inventario")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/Inventario")
 	public ResponseEntity<List<Inv_Inventario>> getAllInventario(){
 		return   ResponseEntity.ok().body(Inventarioervice.getAllInventario());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/Inventario/{Inventario_codigo}")
+	@CrossOrigin(origins = "*")
+	@GetMapping("/api/Inventario/{Inventario_codigo}")
 	public ResponseEntity<Inv_Inventario> getInventariobyId(@PathVariable long Inventario_codigo){
 		return   ResponseEntity.ok().body(Inventarioervice.getInventariobyId(Inventario_codigo));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping("/Inventario")
+	@CrossOrigin(origins = "*")
+	@PostMapping("/api/Inventario")
 	public ResponseEntity<Inv_Inventario> createInventario(@RequestBody Inv_Inventario Inventario ){
 	 return	ResponseEntity.ok().body(Inventarioervice.createInventario(Inventario));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping("/Inventario/{Inventario_codigo}")
+	@CrossOrigin(origins = "*")
+	@PutMapping("/api/Inventario/{Inventario_codigo}")
 	public ResponseEntity<Inv_Inventario> updateInventario(@PathVariable long Inventario_codigo, @RequestBody Inv_Inventario Inventario ){
 		 
 		Inventario.setInventario_codigo(Inventario_codigo);
 		return	ResponseEntity.ok().body(Inventarioervice.UpdateInventario(Inventario));
 		}
 		
-	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping("/Inventario/{Inventario_codigo}")
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("/api/Inventario/{Inventario_codigo}")
 	public HttpStatus deleteInventario(@PathVariable long Inventario_codigo ) {
 		this.Inventarioervice.deleteInventario(Inventario_codigo);
 		return  HttpStatus.OK;
