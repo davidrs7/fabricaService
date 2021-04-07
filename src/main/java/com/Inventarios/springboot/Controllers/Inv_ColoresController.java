@@ -24,6 +24,7 @@ public class Inv_ColoresController {
 	@Autowired
 	private Inv_ColoresService Coloreservice;
 	
+	//test  
 	@CrossOrigin(origins = "*")
 	@GetMapping("/api/Colores")
 	public ResponseEntity<List<Inv_Colores>> getAllColores(){

@@ -18,7 +18,7 @@ import com.Inventarios.springboot.model.Inv_Tallas;
 import com.Inventarios.springboot.service.Inv_TallasService;
 
 @RestController
-public class Inv_TallasController {
+public class Inv_TallasController { 
 
 	
 	@Autowired

@@ -21,7 +21,7 @@ import com.Inventarios.springboot.service.Inv_InventarioService;
 public class Inv_InventarioController {
 
 	
-	@Autowired
+	@Autowired 
 	private Inv_InventarioService Inventarioervice;
 	
 	

@@ -21,7 +21,7 @@ import com.Inventarios.springboot.service.Inv_TipidenService;
 public class Inv_TipidenController {
 
 	
-	@Autowired
+	@Autowired 
 	private Inv_TipidenService TipidenService;
 	
 	@CrossOrigin(origins = "*")

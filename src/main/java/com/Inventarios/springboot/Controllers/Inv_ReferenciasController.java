@@ -20,7 +20,7 @@ import com.Inventarios.springboot.service.Inv_ReferenciasService;
 @RestController
 public class Inv_ReferenciasController {
 
-	
+	 
 	@Autowired
 	private Inv_ReferenciasService ReferenciaService;
 	@CrossOrigin(origins = "*")

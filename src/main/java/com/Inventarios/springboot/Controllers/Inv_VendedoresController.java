@@ -20,7 +20,7 @@ import com.Inventarios.springboot.service.Inv_VendedoresService;
 @RestController
 public class Inv_VendedoresController {
 
-	
+	  
 	@Autowired
 	private Inv_VendedoresService vendedoresService;
 	
